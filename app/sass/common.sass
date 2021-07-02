@@ -222,6 +222,9 @@ nav
         position: relative
         &:hover
             color: var(--main)
+        &.active
+            color: var(--main)
+
 .submenu
     max-height: 0
     background: #fff
@@ -326,6 +329,10 @@ select
         &.tiktok
             background-image: url(../img/social/tiktok.svg)
 
+h1
+    font-size: 34px
+    font-weight: 600
+    margin: 0 0 30px 0
 h2
     font-size: 1.5rem
     font-weight: 600
@@ -716,19 +723,6 @@ hr
         filter: hue-rotate(100)
     100%
         filter: hue-rotate(0)
-
-.blocklink
-    background: url(../img/icons/arrow__external.svg) no-repeat top 1rem right 1rem var(--bg__gray)
-    border-radius: 10px
-    padding: 1.875rem 1.5rem
-    margin: 3rem 0 0 0
-    display: block
-    &__title
-        font-weight: 600
-        margin: 0 0 1rem 0
-    &__description
-        font-size: 0.875rem
-        color: var(--gray)
 
 .category
     margin: 4rem 0
@@ -1232,3 +1226,4 @@ hr
 
 @import layout/banner
 @import layout/board
+@import layout/stream

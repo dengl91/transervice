@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transervice</title>
+    
+    <link rel="stylesheet" href="public/css/common.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <a href="" class="logo">
+                <img src="public/img/logo.svg" alt="Трансервис">
+            </a>
+            <nav class="nav">
+                <a href="instruction.html">Инструкция</a>
+                <a href="online.html" class="active">Онлайн-трансляция</a>
+                <a href="about-us.html">О нас</a>
+                <a href="account.html" class="user__name">Андрей О.</a>
+                <span class="btn" data-control="modal--request">Занять очередь</span>
+            </nav>
+            <div class="menu-btn">
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="common">
+        <div class="container">
+            <h1>Зона ожидания 24 мая 15:00</h1>
+            <div class="row">
+                <div class="col-60">
+                    <div class="text__content">
+                        <img id="image0" src="http://91.133.85.170:8090/cgi-bin/faststream.jpg?stream=half&amp;fps=15&amp;rand=COUNTER" class="stream__img">
+                    </div>
+                </div>
+                <div class="col-40">
+                    <div class="board">
+                        <div class="board__top">
+                            <div class="board__title">Очередь 19 мая 12:00</div>
+                            <div class="row">
+                                <div class="col-grow">
+                                    <div class="board__num">300</div>
+                                    <div class="board__subtitle">стоят в очереди</div>
+                                </div>
+                                <div class="col-grow">
+                                    <div class="board__num">300</div>
+                                    <div class="board__subtitle">заняли очередь</div>
+                                </div>
+                                <div class="col-grow">
+                                    <div class="board__num">≈99 часов</div>
+                                    <div class="board__subtitle">ожидание после регистрации</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board__table">
+                            <div class="table__row table__header">
+                                <div class="table__item">№ талона</div>
+                                <div class="table__item">Госномер ТС</div>
+                                <div class="table__item">Время въезда на таможню</div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__item">158</div>
+                                <div class="table__item">152 MGV</div>
+                                <div class="table__item">14:54</div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__item">158</div>
+                                <div class="table__item">152 MGV</div>
+                                <div class="table__item">14:54</div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__item">158</div>
+                                <div class="table__item">152 MGV</div>
+                                <div class="table__item">14:54</div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__item">158</div>
+                                <div class="table__item">152 MGV</div>
+                                <div class="table__item">14:54</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal modal--request">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Занять место</div>
+                <div class="modal__subtitle">Укажите личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" placeholder="+7(______)______-__-__" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" placeholder="__ __   __ __   __ __ __ __ __ __">
+                <div class="checkbox__content">
+                    <input type="checkbox" id="agreement">
+                    <label for="agreement">Я принимаю условия <a href="/">политики конфиднциальности</a></label>
+                </div>
+                <input type="submit" value="Занять очередь">
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <img src="public/img/logo-w.svg" alt="Трансервис" class="footer__logo">
+            <div class="footer__info">
+                <a href="tel:+79210000000" class="icon__item phone">+7 (921) 000-00-00</a>
+                <a href="info@russianborder.ru" class="icon__item email">info@russianborder.ru</a>
+                <a href="info@russianborder.ru" class="icon__item location">188490, Ленинградская область, г. Ивангород, Кингисеппское шоссе, д. 7, офис №1</a>
+            </div>
+            <div class="footer__text">ООО «Транссервис»</div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="public/js/main.js"></script>
+    
+</body>
+</html>
