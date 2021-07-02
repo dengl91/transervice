@@ -1,0 +1,40 @@
+// 
+// Theme Name: New Clean Template
+// _board.sass
+//
+// app/sass/layout/
+//
+
+.board
+    max-width: 490px
+    &__top
+        background: #fff
+        border-radius: 10px 10px 0 0
+        box-shadow: 0 8px 8px #0000000a
+        padding: 30px
+        position: relative
+    &__title
+        font-size: 24px
+        font-weight: 600
+        margin: 0 0 20px 0
+    &__num
+        font-size: 32px
+        color: var(--main)
+        font-weight: 600
+        white-space: nowrap
+        margin: 0 0 10px 0
+    &__subtitle
+        font-size: 14px
+    &__table
+        background: #FCFCFC
+        border-radius: 0 0 10px 10px
+        padding: 20px 30px
+
+@media (max-width: 1200px)
+
+@media (max-width: 768px)
+    .board
+        .col-grow
+            width: 50%
+            &:last-child
+                width: 100%

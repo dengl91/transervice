@@ -1,0 +1,96 @@
+// 
+// Theme Name: New Clean Template
+// _banner.sass
+//
+// app/sass/layout/
+//
+
+.banner
+    height: 100vh
+    min-height: 680px
+    margin: 0
+    .container
+        display: flex
+        flex-direction: column
+        justify-content: center
+    &__row
+        height: 100vh
+        min-height: 680px
+        display: flex
+    &__left
+        display: flex
+        flex-direction: column
+        justify-content: center
+        padding: 0 0 0 calc((100vw - 1180px) / 2)
+    &__right
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        justify-content: center
+        padding: 0 calc((100vw - 1180px) / 2) 0 0
+    &__right
+        background: url(../img/banner__img.jpeg) no-repeat 50%
+        background-size: cover
+    h1
+        max-width: 540px
+        font-size: 48px
+        font-weight: 600
+        margin: 0 0 1.5rem 0
+        &.simple
+            // margin: 0
+        sup
+            width: 36px
+            height: 36px
+            background: url(../img/icons/usa.svg) no-repeat 50%
+            background-size: contain
+            margin: 0 0 0 4px
+            display: inline-block
+            transform: translateY(2px)
+    h2
+        max-width: 400px
+        font-size: 16px
+        font-weight: 400
+        line-height: 1.5
+    h3
+        font-size: 1rem
+        color: var(--gray)
+        font-weight: 400
+        text-align: center
+        margin: 0 0 2.5rem 0
+        strong
+            font-weight: 600
+    &--page
+        height: 180px
+        padding: 0
+        h3
+            margin: 0
+    &--news
+        height: 130px
+        padding: 0 0 0.5rem 0
+        h1
+            max-width: 880px
+            font-weight: 600
+            text-align: left
+            margin: 0
+
+@media (max-width: 1200px)
+
+@media (max-width: 768px)
+    .banner
+        height: auto
+        padding: 100px 0 0 0
+        &.blur
+            filter: blur(2px)
+        &__row
+            height: auto
+            flex-direction: column
+        &__left
+            padding: 0 20px
+        &__right
+            padding: 40px 20px
+            margin: 40px 0 0 0
+        h1
+            font-size: 30px
+            margin: 0 0 20px 0
+        h2
+            margin: 0 0 1rem 0
