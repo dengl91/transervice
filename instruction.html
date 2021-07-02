@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transervice</title>
+    
+    <link rel="stylesheet" href="public/css/common.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <a href="" class="logo">
+                <img src="public/img/logo.svg" alt="Трансервис">
+            </a>
+            <nav class="nav">
+                <a href="instruction.html">Инструкция</a>
+                <a href="/">Онлайн-трансляция</a>
+                <a href="/">О нас</a>
+                <a href="/" class="user__name">Андрей О.</a>
+                <span class="btn" data-control="modal--request">Занять очередь</span>
+            </nav>
+            <div class="menu-btn">
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="common">
+        <div class="container">
+            <div class="row">
+                <div class="col-60">
+                    <div class="text__content">
+                        <h2>Инструкция</h2>
+                        <p>Мы делаем все, для того, чтобы прохождение границы было комфортным. Соблюдайте, пожалуйста, очередность проезда, чтобы время других водителей не сдвигалось. Тогда наши расчеты времени прибывания будут точнее.</p>
+                        <p><strong>Регистрация через сайт:</strong></p>
+                        <div class="steps">
+                            <div class="steps__item">
+                                <div class="steps__num">1</div>
+                                <div class="steps__text">Зарегистрируйтесь в электронной очереди на сайте с компьютера либос мобильного телефона, нажав на кнопку «занять очередь».</div>
+                            </div>
+                            <div class="steps__item">
+                                <div class="steps__num">2</div>
+                                <div class="steps__text">Укажите запрашиваемые данные и оплатите талон банковской картой.После оплаты сервис сформирует индивидуальный номер. Вам станет доступна информация об очередности проезда и примерном времени выезда в зону перед таможней.</div>
+                            </div>
+                            <div class="steps__item">
+                                <div class="steps__num">3</div>
+                                <div class="steps__text">Когда на светодиодном табло высветятся ваши номер талона и госномер автомобиля, это значит, что вы можете проехать в предтаможенную зону.</div>
+                            </div>
+                        </div>
+                        <p><strong>Регистрация по прибытию:</strong></p>
+                        <div class="steps">
+                            <div class="steps__item">
+                                <div class="steps__num">1</div>
+                                <div class="steps__text">Зарегистрируйтесь в электронной очереди на сайте с компьютера либос мобильного телефона, нажав на кнопку «занять очередь».</div>
+                            </div>
+                            <div class="steps__item">
+                                <div class="steps__num">2</div>
+                                <div class="steps__text">Укажите запрашиваемые данные и оплатите талон банковской картой.После оплаты сервис сформирует индивидуальный номер. Вам станет доступна информация об очередности проезда и примерном времени выезда в зону перед таможней.</div>
+                            </div>
+                            <div class="steps__item">
+                                <div class="steps__num">3</div>
+                                <div class="steps__text">Когда на светодиодном табло высветятся ваши номер талона и госномер автомобиля, это значит, что вы можете проехать в предтаможенную зону.</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p><strong>Примечания</strong></p>
+                        <ul>
+                            <li>В предтаможенной зоне в очереди находятся первые четыре машины, ожидающие проезда.</li>
+                            <li>Зарегистрируйтесь в электронной очереди на сайте с компьютера либо с мобильного телефона, нажав на кнопку «занять очередь».</li>
+                            <li>При регистрации в очереди на сайте вы можете создать аккаунт в личном кабинете. Тогда вам не придется каждый раз при бронировании места через сервис заполнять личные дан-ные. Можно занять очередь без регистрации в личном кабинет.</li>
+                            <li>Если водитель, вызванный проехать в предтаможенную зону, не сделает это в течение 20 минут, то система возвращает его обратно в очередь. Эту машину вызовут вновь через 20 машин.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-40">
+                    <div class="sidebar">
+                        <div class="sidebar__title">Стоимость бронирования на сайте</div>
+                        <div class="sidebar__text">Функция временно доступна только для грузовых автомобилей. Сейчас сервис в тестовом режиме, поэтому действует скидка 80%</div>
+                        <div class="sidebar__price">100 р. <div class="sidebar__oldprice">800 р.</div></div>
+                        <div class="sidebar__hint">Грузовые ТС</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal modal--request">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Занять место</div>
+                <div class="modal__subtitle">Укажите личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" placeholder="+7(______)______-__-__" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" placeholder="__ __   __ __   __ __ __ __ __ __">
+                <div class="checkbox__content">
+                    <input type="checkbox" id="agreement">
+                    <label for="agreement">Я принимаю условия <a href="/">политики конфиднциальности</a></label>
+                </div>
+                <input type="submit" value="Занять очередь">
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <img src="public/img/logo-w.svg" alt="Трансервис" class="footer__logo">
+            <div class="footer__info">
+                <a href="tel:+79210000000" class="icon__item phone">+7 (921) 000-00-00</a>
+                <a href="info@russianborder.ru" class="icon__item email">info@russianborder.ru</a>
+                <a href="info@russianborder.ru" class="icon__item location">188490, Ленинградская область, г. Ивангород, Кингисеппское шоссе, д. 7, офис №1</a>
+            </div>
+            <div class="footer__text">ООО «Транссервис»</div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="public/js/main.js"></script>
+    
+</body>
+</html>
