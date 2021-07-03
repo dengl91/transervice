@@ -31,6 +31,19 @@
             $('.banner').toggleClass('blur');
         });
 
+        // viewport
+
+        if ( $(window).width() < 1200 && $(window).width() > 768 ) {
+            $('#viewport').attr('content', 'width=device-width, initial-scale=0.5');
+        }
+        $(window).resize(function() {
+            if ( $(window).width() < 1200 && $(window).width() > 768 ) {
+                $('#viewport').attr('content', 'width=device-width, initial-scale=0.5');
+            } else if ( $(window).width() < 768 ) {
+                $('#viewport').attr('content', 'width=device-width, initial-scale=1');
+            }
+        });
+
         // checkbox
 
         $('.checkbox').on('click', function() {

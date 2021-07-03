@@ -33,10 +33,20 @@
         padding: 20px 30px
 
 @media (max-width: 1200px)
+    .board
+        &__top
+            .col-grow
+                max-width: 33.33%
+        &__num
+            font-size: 24px
+        &__subtitle
+            max-width: 120px
+            font-size: 12px
 
 @media (max-width: 768px)
     .board
         .col-grow
             width: 50%
+            max-width: 50%
             &:last-child
                 width: 100%

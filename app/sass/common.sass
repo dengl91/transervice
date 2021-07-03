@@ -331,18 +331,18 @@ select
 
 h1
     font-size: 34px
-    font-weight: 600
+    font-weight: 700
     margin: 0 0 30px 0
 h2
     font-size: 1.5rem
-    font-weight: 600
+    font-weight: 700
     margin: 1rem 0 3rem 0
     display: block
     &:first-child
-        margin: 0 0 2rem 0
+        margin: 0 0 1.5rem 0
 h3
     font-size: 1.5rem
-    font-weight: 600
+    font-weight: 700
     margin: 3rem 0
 
 ul
@@ -397,6 +397,9 @@ hr
         border-radius: 10px
         box-shadow: 0 0 10px #00000014
         padding: 30px
+        h3
+            font-size: 1rem
+            margin: 30px 0 20px 0
         ul
             list-style-type: disc
             padding: 0 0 0 18px
@@ -760,7 +763,7 @@ hr
     top: 20px
     &__title
         font-size: 24px
-        font-weight: 600
+        font-weight: 700
         margin: 0 0 10px 0
     &__text
         font-size: 14px
@@ -1106,6 +1109,11 @@ hr
     padding: 0 24px
     display: inline-block
     cursor: pointer
+
+@media screen and (max-width: 1200px)
+    .logo
+        img
+            max-width: 120px
 
 @media screen and (max-width: 768px)
     body
