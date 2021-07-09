@@ -31,19 +31,6 @@
             $('.banner').toggleClass('blur');
         });
 
-        // viewport
-
-        if ( $(window).width() < 1200 && $(window).width() > 768 ) {
-            $('#viewport').attr('content', 'width=device-width, initial-scale=0.5');
-        }
-        $(window).resize(function() {
-            if ( $(window).width() < 1200 && $(window).width() > 768 ) {
-                $('#viewport').attr('content', 'width=device-width, initial-scale=0.5');
-            } else if ( $(window).width() < 768 ) {
-                $('#viewport').attr('content', 'width=device-width, initial-scale=1');
-            }
-        });
-
         // checkbox
 
         $('.checkbox').on('click', function() {
@@ -58,6 +45,19 @@
                 $('[data-single-model]').show();
             }
         });
+
+        // datepicker
+
+        if ( $('[data-datepicker]').length ) {
+            $datepicker = $('[data-datepicker]').datepicker({
+                autoClose: true,
+                onSelect: function (dateText, inst) {
+                    let date = dateText.replace(/\./g, '/');
+                }
+            });
+
+            $('#date_to').data('datepicker').selectDate(new Date());
+        }
 
         // chart
 
@@ -345,16 +345,6 @@
             });
         });
 
-        // buttons
-
-        $('.auto__btn').on('click', function() {
-            $('.modal--request').addClass('active');
-        });
-
-        $('.request-partner-btn').on('click', function() {
-            $('.modal--partner').addClass('active');
-        });
-
         // modal
 
         $('.modal').mousedown( function(e) {
@@ -366,24 +356,8 @@
             $(this).closest('.modal').removeClass('active');
         });
 
-        // Fixed menu
-
-        var position = $(window).scrollTop(); 
-
-        // should start at 0
-
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-            if ( scroll > 140 && !$('.nav').hasClass('active') && scroll > position ) {
-                setTimeout(() => {
-                    $('.header').addClass('hide');
-                }, 100);
-            } else {
-                setTimeout(() => {
-                    $('.header').removeClass('hide');
-                }, 100);
-            }
-            position = scroll;
+        $('.modal [data-close]').on('click', function() {
+            $(this).closest('.modal').removeClass('active');
         });
 
         // Lazy and counters

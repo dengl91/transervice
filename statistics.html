@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transervice</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="public/css/common.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container wide">
+            <a href="" class="logo">
+                <img src="public/img/logo.svg" alt="Трансервис">
+            </a>
+            <nav class="nav">
+                <a href="instruction.html">Инструкция</a>
+                <a href="online.html">Онлайн-трансляция</a>
+                <a href="about-us.html">О нас</a>
+                <a href="account.html" class="user__name active">Андрей О.</a>
+                <span class="btn" data-control="modal--request">Занять очередь</span>
+            </nav>
+            <div class="menu-btn">
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="userarea">
+        <div class="u-sidebar">
+            <div class="u-sidebar__top">
+                <div class="u-sidebar__name">Андрей Овсов</div>
+                <div class="u-sidebar__balance">Ваш баланс: 200 р.</div>
+            </div>
+            <div class="u-sidebar__menu">
+                <a href="queue.html" class="u-sidebar__item queue" data-toggle>Очередь</a>
+                <a href="history.html" class="u-sidebar__item history" data-toggle>История поездок</a>
+                <a href="balance.html" class="u-sidebar__item balance" data-toggle>Баланс</a>
+                <a href="statistics.html" class="u-sidebar__item statistics active" data-toggle>Статистика</a>
+            </div>
+            <div class="u-sidebar__text">
+                <span>Телефон</span>
+                <a href="tel:+79210000000">+7 (921) 000-00-00</a>
+            </div>
+            <div class="u-sidebar__text">
+                <span>Почта</span>
+                <a href="mailto:info@russianborder.ru">info@russianborder.ru</a>
+            </div>
+            <div class="u-sidebar__settings">Аккаунт</div>
+        </div>
+        <div class="u-area">
+            <div class="u-area__title">Статистика</div>
+            <div class="row">
+                <div class="col-70">
+                    <div class="workload">
+                        <div class="workload__top">
+                            <div class="workload__title">7-13 июня</div>
+                            <div class="workload__description">Грузовые ТС</div>
+                            <div class="workload__hint">Среднее значение</div>
+                        </div>
+                        <div class="workload__graph"></div>
+                        <div class="workload__description">В разработке</div>
+                    </div>
+                </div>
+                <div class="col-30">
+                    <div class="workload">
+                        <div class="workload__top">
+                            <div class="workload__title">Время суток</div>
+                            <div class="workload__hint">Среднее значение</div>
+                        </div>
+                        <div class="workload__chart">
+                            <svg class="workload__data" width="280" height="280"></svg>
+                        </div>
+                        <div class="workload__description">Грузовые ТС</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal modal--request">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Занять место</div>
+                <div class="modal__subtitle">Укажите личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" placeholder="+7(______)______-__-__" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" placeholder="__ __   __ __   __ __ __ __ __ __">
+                <div class="checkbox__content">
+                    <input type="checkbox" id="agreement">
+                    <label for="agreement">Я принимаю условия <a href="/">политики конфиднциальности</a></label>
+                </div>
+                <input type="submit" value="Занять очередь">
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="public/js/main.js"></script>
+    
+</body>
+</html>

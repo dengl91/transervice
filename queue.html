@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transervice</title>
+    
+    <link rel="stylesheet" href="public/css/common.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container wide">
+            <a href="" class="logo">
+                <img src="public/img/logo.svg" alt="Трансервис">
+            </a>
+            <nav class="nav">
+                <a href="instruction.html">Инструкция</a>
+                <a href="online.html">Онлайн-трансляция</a>
+                <a href="about-us.html">О нас</a>
+                <a href="account.html" class="user__name active">Андрей О.</a>
+                <span class="btn" data-control="modal--request">Занять очередь</span>
+            </nav>
+            <div class="menu-btn">
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="userarea">
+        <div class="u-sidebar">
+            <div class="u-sidebar__top">
+                <div class="u-sidebar__name">Андрей Овсов</div>
+                <div class="u-sidebar__balance">Ваш баланс: 200 р.</div>
+            </div>
+            <div class="u-sidebar__menu">
+                <a href="queue.html" class="u-sidebar__item queue active" data-toggle>Очередь</a>
+                <a href="history.html" class="u-sidebar__item history" data-toggle>История поездок</a>
+                <a href="balance.html" class="u-sidebar__item balance" data-toggle>Баланс</a>
+                <a href="statistics.html" class="u-sidebar__item statistics" data-toggle>Статистика</a>
+            </div>
+            <div class="u-sidebar__text">
+                <span>Телефон</span>
+                <a href="tel:+79210000000">+7 (921) 000-00-00</a>
+            </div>
+            <div class="u-sidebar__text">
+                <span>Почта</span>
+                <a href="mailto:info@russianborder.ru">info@russianborder.ru</a>
+            </div>
+            <div class="u-sidebar__settings" data-control="modal--settings">Аккаунт</div>
+        </div>
+        <div class="u-area">
+            <div class="u-area__title">Очередь 19 мая 12:00</div>
+            <!-- <div class="container wide"> -->
+                <div class="row">
+                    <div class="col-60">
+                        <div class="table__wrapper">
+                            <div class="table">
+                                <div class="table__row table__header">
+                                    <div class="table__item">№ талона</div>
+                                    <div class="table__item">Госномер ТС</div>
+                                    <div class="table__item">Выезд из зоны ожидания</div>
+                                    <div class="table__item">Ожидание</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                </div>
+                            </div>
+                            <div class="u-area__nav">
+                                <div class="u-area__nav-prev"></div>
+                                <div class="u-area__nav-item active">1</div>
+                                <div class="u-area__nav-item">2</div>
+                                <div class="u-area__nav-item">3</div>
+                                <div class="u-area__nav-item">4</div>
+                                <div class="u-area__nav-next"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-40">
+                        <div class="u-area__sideboard">
+                            <div class="row">
+                                <div class="col-grow">
+                                    <div class="board__num">300</div>
+                                    <div class="board__subtitle">стоят в очереди</div>
+                                </div>
+                                <div class="col-grow">
+                                    <div class="board__num">300</div>
+                                    <div class="board__subtitle">заняли очередь</div>
+                                </div>
+                                <div class="col-grow">
+                                    <div class="board__num">≈99 часов</div>
+                                    <div class="board__subtitle">ожидание после регистрации</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-area__ticket">
+                            <div class="u-area__subtitle">Вы еще не заняли очередь</div>
+                            <div class="u-area__text">Забронируйте место на границе, чтобы не тратить время, простаивая в живой очереди</div>
+                            <div class="btn" data-control="modal--request">Занять очередь</div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </div>
+    </section>
+
+    <div class="modal modal--request">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Занять место</div>
+                <div class="modal__subtitle">Укажите личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" placeholder="+7(______)______-__-__" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" placeholder="__ __   __ __   __ __ __ __ __ __">
+                <div class="checkbox__content">
+                    <input type="checkbox" id="agreement">
+                    <label for="agreement">Я принимаю условия <a href="/">политики конфиднциальности</a></label>
+                </div>
+                <input type="submit" value="Занять очередь">
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <div class="modal modal--settings">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Личные данные</div>
+                <div class="modal__subtitle">Отредактируйте личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" value="+7 965 749 36-20" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" value="33 25 362647">
+                <div class="btns">
+                    <div class="btn stroke" data-close>Отмена</div>
+                    <div class="btn">Сохранить</div>
+                </div>
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="public/js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,190 @@
+// 
+// Theme Name: New Clean Template
+// _userarea.sass
+//
+// app/sass/layout/
+//
+
+.userarea
+    min-height: calc(100vh - 84px)
+    background: var(--blue__light)
+    display: flex
+    margin: 0
+
+.u-sidebar
+    color: var(--sidebar__text)
+    background: var(--sidebar)
+    display: flex
+    flex: 0 0 230px
+    flex-direction: column
+    padding: 20px 30px
+    &__top
+        color: #fff
+        font-weight: 600
+        background: #4E566D
+        border-radius: 4px
+        padding: 10px
+        margin: 0 0 20px 0
+    &__balance
+        font-size: 14px
+        margin: 4px 0 0 0
+    &__menu
+        border-bottom: 1px solid var(--sidebar__stroke)
+        padding: 0 0 20px 0
+        margin: 0 0 20px 0
+    &__item
+        line-height: 48px
+        background-repeat: no-repeat
+        background-position: 4px 50%
+        padding: 0 0 0 32px
+        opacity: 0.9
+        filter: brightness(10)
+        cursor: pointer
+        &.active
+            color: var(--main)
+            font-weight: 600
+            opacity: 1
+            filter: brightness(1)
+        &.queue
+            background-image: url(../img/icons/queue.svg)
+        &.history
+            background-image: url(../img/icons/history.svg)
+        &.balance
+            background-image: url(../img/icons/balance.svg)
+        &.statistics
+            background-image: url(../img/icons/statistics.svg)
+    &__text
+        font-size: 14px
+        display: flex
+        flex-direction: column
+        margin: 0 0 24px 0
+        span
+            margin: 0 0 4px 0
+    &__settings
+        background: url(../img/icons/settings.svg) no-repeat 4px 50%
+        padding: 0 0 0 32px
+        margin: auto 0 10px 0
+        cursor: pointer
+
+.u-area
+    flex-grow: 1
+    padding: 20px
+    &__title
+        font-size: 24px
+        font-weight: 700
+        margin: 0 0 24px 0
+        [class*=sideboard] &
+            text-align: center
+    &__nav
+        display: flex
+    &__nav-prev
+        width: 30px
+        height: 30px
+        background: url(../img/icons/nav-prev.svg) no-repeat 50%
+        margin: 0 10px 0 0
+        cursor: pointer
+    &__nav-next
+        width: 30px
+        height: 30px
+        background: url(../img/icons/nav-next.svg) no-repeat 50%
+        cursor: pointer
+    &__nav-item
+        width: 30px
+        height: 30px
+        font-size: 14px
+        font-weight: 600
+        text-align: center
+        line-height: 30px
+        background: var(--stroke)
+        border-radius: 4px
+        margin: 0 10px 0 0
+        cursor: pointer
+        &.active
+            color: #fff
+            background: var(--main)
+    &__sideboard
+        background: #fff
+        border: 1px solid var(--stroke)
+        border-radius: 10px
+        display: flex
+        flex-direction: column
+        padding: 20px 24px
+        margin: 0 0 15px 0
+    &__subtitle
+        font-size: 20px
+        font-weight: 700
+        text-align: center
+        margin: 0 0 10px 0
+    &__text
+        text-align: center
+        margin: 0 0 24px 0
+    &__ticket
+        background: #fff
+        border: 1px solid var(--stroke)
+        border-radius: 10px
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 20px 24px
+        margin: 0 0 15px 0
+    &__hint
+        display: flex
+        align-items: center
+        justify-content: center
+        > div
+            max-width: 440px
+            padding: 30px 40px
+    .btn
+        margin: 0 auto
+    &__search
+        background: #fff
+        border: 1px solid var(--stroke)
+        border-radius: 10px
+        padding: 20px 24px
+        margin: 0 0 15px 0
+        label
+            margin: 0 0 4px 0
+            display: block
+        input
+            margin: 0 0 24px 0
+        #search
+            font-family: 'PT Root', sans-serif
+            font-size: 16px
+            background: url(../img/icons/search.svg) no-repeat top 50% right 15px
+
+@media (max-width: 768px)
+    .userarea
+        flex-wrap: wrap
+
+    .u-sidebar
+        width: 100vw
+        background: #fff
+        flex: auto
+        padding: 20px
+        &__top
+            display: none
+        &__menu
+            width: 100%
+            border: none
+            display: flex
+            padding: 0
+            margin: 0
+            overflow: auto
+        &__item
+            color: var(--text)
+            line-height: 24px
+            white-space: nowrap
+            padding: 0 0 0 28px
+            margin: 0 15px 0 0
+            filter: none
+        &__text
+            display: none
+        &__settings
+            display: none
+
+    .u-area
+        width: 100%
+        flex: auto
+        &__nav
+            width: 100%
+            justify-content: center

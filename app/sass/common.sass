@@ -18,8 +18,9 @@
     --active__hover: #b72a35
     --stroke: #EDEFF1
     --stroke__light: #464952
-    --blue: #60acd4
+    --blue: #EAEFFA
     --blue__light: #F8FAFF
+    --blue__bright: #3760DA
     --orage__blend: #fff5e4
     --ocean: #77c3c3
     --ocean__light: #e4f3f3
@@ -27,6 +28,9 @@
     --violet__light: #f0e4fa
     --gray: #727D88
     --bg__gray: #F6F7F8
+    --sidebar: #1C2644
+    --sidebar__text: #E1E4EC
+    --sidebar__stroke: #565D76
     --footer: #1C2644
     --yellow: #fe9f00
     --yellow__light: #fff5e4
@@ -35,7 +39,7 @@
     --blue__blend: #548cde80
     --brown: #CAAC0E
     --orange: #F4C82D
-    --green: #58CF6D
+    --green: #E6F5EC
     --placeholder: #9090A3
     --input: 3.75rem
     --select: 2.875rem
@@ -88,6 +92,9 @@ textarea:focus
     max-width: var(--container)
     padding: 0 20px
     margin: auto
+    &.wide
+        max-width: 100%
+        height: auto
 
 section
     margin: 3rem 0
@@ -95,6 +102,12 @@ section
         background: var(--blue__light)
         padding: 3rem 0 6rem 0
         margin: 0
+    &.info
+        margin: 100px 0
+        &--blue
+            background: var(--blue__light)
+            padding: 100px 0
+            margin: 100px 0 300px 0
 
 .row
     display: flex
@@ -349,6 +362,16 @@ ul
     list-style-type: none
     padding: 0
 
+.content
+    &__img
+        max-width: 100%
+
+.float
+    &__img
+        width: 400px
+        height: auto
+        position: absolute
+
 .loading
     animation-duration: 2s
     animation-fill-mode: forwards
@@ -365,6 +388,18 @@ ul
         background-position: 468px 0
 
 .table
+    margin: 0 0 30px 0
+    &__wrapper
+        min-height: 330px
+        background: #fff
+        border-radius: 10px
+        box-shadow: 0 10px 10px #0000000a
+        padding: 24px 40px
+        &.empty
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
     &__row
         border-bottom: 1px solid var(--stroke)
         display: flex
@@ -372,7 +407,11 @@ ul
         &:last-child
             border: none
     &__header
-        font-size: 14px
+        font-size: 16px
+        font-weight: 700
+        .board &
+            font-size: 14px
+            font-weight: 400
         .table__item
             align-items: flex-start
     &__item
@@ -380,6 +419,28 @@ ul
         display: flex
         flex: 1 1 0
         align-items: center
+        &.out
+            color: var(--blue__bright)
+            font-weight: 600
+        &.in
+            color: var(--main)
+            font-weight: 600
+    &__in
+        width: 30px
+        height: 30px
+        background: url(../img/icons/arrow-down.svg) no-repeat 50% var(--green)
+        border-radius: 4px
+    &__out
+        width: 30px
+        height: 30px
+        background: url(../img/icons/arrow-up.svg) no-repeat 50% var(--blue)
+        border-radius: 4px
+    &__hint
+        font-size: 20px
+        font-weight: 700
+        margin: 0 0 10px 0
+    &__message
+        text-align: center
 
 strong
     font-weight: 600
@@ -420,9 +481,15 @@ hr
             position: absolute
             top: 20px
             left: 10px
+            [class*=alt] &
+                width: 2px
+                left: 9px
         &:last-child
             &::after
                 display: none
+                [class*=alt] &
+                    background: linear-gradient(0deg, #ffffff 0%, var(--main) 100%)
+                    display: block
     &__num
         width: 20px
         height: 20px
@@ -436,8 +503,19 @@ hr
         justify-content: center
         flex: 0 0 20px
         margin: 0 10px 0 0
+        &--alt
+            background: #fff
+            border: 4px solid var(--main)
+            margin: 0 18px 0 0
+    &__content
+        max-width: 260px
+    &__title
+        font-size: 20px
+        font-weight: 700
+        margin: 0 0 6px 0
     &__text
-        line-height: 1.5
+        font-size: 14px
+        line-height: 20px
 
 /* style the arrow inside the select element */
 
@@ -609,7 +687,9 @@ hr
 .btns
     display: flex
     .btn
-        margin: 0 20px 0 0
+        width: 50%
+        &:last-child
+            margin: 0 0 0 15px
 
 .declaration
     background: var(--blue__light)
@@ -639,6 +719,9 @@ hr
     border-radius: 10px
     box-shadow: 0 0 10px #00000014
     padding: 30px
+    .u-area &
+        border: 1px solid var(--stroke)
+        box-shadow: none
     &__title
         font-size: 32px
         font-weight: 600
@@ -676,6 +759,7 @@ hr
 
 .workload
     max-width: 100%
+    background: #fff
     border-radius: 10px
     box-shadow: 0 0 10px #00000014
     padding: 40px
@@ -924,6 +1008,7 @@ hr
     top: 0
     left: 0
     z-index: 9
+    backdrop-filter: blur(4px)
     &.active
         display: flex
     &__container
@@ -970,6 +1055,32 @@ hr
     &__outro
         text-align: center
         margin: 40px 0 0 0
+
+.about
+    height: 520px
+    background: url(../img/about-us__img.jpg) no-repeat 50%
+    background-size: cover
+    margin: 0 0 20px 0
+    .container
+        display: flex
+        align-items: center
+    h2
+        max-width: 780px
+        font-size: 54px
+        color: #fff
+        font-weight: 700
+        margin: 0
+    &__subtitle
+        font-size: 36px
+        font-weight: 700
+        line-height: 1
+        margin: 0 0 40px 0
+    &__green
+        font-size: 24px
+        color: var(--main)
+        font-weight: 700
+        line-height: 1.5
+        margin: 30px 0
 
 .faq
     &__item
@@ -1182,9 +1293,52 @@ hr
 
     section
         margin: 40px 0
+        &.info
+            margin: 20px 0
+            &--blue
+                padding: 20px 0
+                .row
+                    flex-direction: column-reverse
 
     h2
         text-align: left
+
+    .table
+        &__wrapper
+            border-radius: 0
+            padding: 20px
+            margin: 0 -20px
+        &__header
+            font-size: 12px
+            font-weight: 400
+        &__item
+            padding: 0 10px 0 0
+
+    .float
+        &__img
+            width: 100%
+            height: 220px
+            object-fit: cover
+            position: relative
+
+    .plans
+        .row
+            flex-direction: column-reverse
+        .btn
+            margin: 0 0 40px 0
+
+    .about
+        height: 280px
+        h2
+            font-size: 28px
+            line-height: 30px
+        &__subtitle
+            font-size: 24px
+            margin: 0 0 15px 0
+        &__green
+            font-size: 24px
+            line-height: 1.1
+            margin: 10px 0 24px 0
 
     .declaration
         padding: 40px 0
@@ -1235,3 +1389,4 @@ hr
 @import layout/banner
 @import layout/board
 @import layout/stream
+@import layout/userarea
