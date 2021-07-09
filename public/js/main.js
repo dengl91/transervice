@@ -51,8 +51,10 @@
         if ( $('[data-datepicker]').length ) {
             $datepicker = $('[data-datepicker]').datepicker({
                 autoClose: true,
+                position: 'bottom right',
                 onSelect: function (dateText, inst) {
-                    let date = dateText.replace(/\./g, '/');
+                    let date = dateText;
+                    console.log(date);
                 }
             });
 
@@ -70,6 +72,58 @@
                 transform: 'rotate(' + index * 15 + ')'
             });
             $chart.append($bar);
+        });
+
+        // graph
+
+        var data = [60, 80, 60, 70, 60, 80, 60, 60, 80, 60, 70, 60, 80];
+        var $graph = $('.graph__data');
+        $.each(data, function(index, value) {
+            if ( data[index + 1] ) {
+                let $line = $(document.createElementNS('http://www.w3.org/2000/svg', 'path')).attr({
+                    stroke: '#55BC7E',
+                    d: 'M' + 60 * index + ',' + (300 - (value * 3)) + ' L' + 60 * (index + 1) + ',' + (300 - (data[index + 1] * 3))
+                });
+                $graph.append($line);
+            }
+            let $big_round = $(document.createElementNS('http://www.w3.org/2000/svg', 'circle')).attr({
+                class: 'big-round',
+                fill: '#55BC7E1a',
+                cx: 60 * index,
+                cy: (290 - (value * 3)),
+                r: 40,
+                data: value
+            });
+            $graph.append($big_round);
+            let $round = $(document.createElementNS('http://www.w3.org/2000/svg', 'circle')).attr({
+                class: 'small-round',
+                fill: '#55BC7E',
+                stroke: '#fff',
+                cx: 60 * index,
+                cy: (300 - (value * 3)),
+                r: 8
+            });
+            $graph.append($round);
+            let $value = $(document.createElementNS('http://www.w3.org/2000/svg', 'text')).attr({
+                fill: '#333',
+                x: 60 * index,
+                y: (290 - (value * 3))
+            });
+            $value.text(value);
+            $graph.append($value);
+        });
+
+        $('.big-round').hover(function() {
+            let value  = $(this).attr('data');
+            let scale  = $('.graph__data').innerWidth() / 670;
+            let width  = 140 * scale;
+            let height = 140 * scale;
+            console.log($(this).attr('cx'));
+            let top    = $(this).attr('cy') * scale + 'px';
+            let left   = $(this).attr('cx') * scale - width + 'px';
+            $('.workload__bubble').text(value).css('width', width).css('height', height).css('top', top).css('left', left);
+        }, function() {
+            // $('.workload__bubble').css('left', -100);
         });
 
         // filter

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="65px" height="40px" viewBox="0 0 65 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bubble</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bubble" transform="translate(0.656200, 0.000000)" fill="#FFFFFF">
+            <path d="M4.98784082,0 C2.23311143,0 0,2.2386 0,5 L0,25 C0,27.7614 2.23311143,30 4.98784082,30 L23.6313186,30 L32.0005487,40 L40.3692799,30 L59.0122589,30 C61.7668886,30 64,27.7614 64,25 L64,5 C64,2.2386 61.7668886,0 59.0122589,0 L4.98784082,0 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

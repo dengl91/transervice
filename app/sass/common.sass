@@ -419,6 +419,30 @@ ul
         display: flex
         flex: 1 1 0
         align-items: center
+        .queue &
+            &:first-child
+                flex: 0.75 1 0
+        .queue &
+            &:nth-child(3)
+                flex: 1.5 1 0
+        .queue &
+            &:last-child
+                flex: 0.75 1 0
+        .history &
+            &:first-child
+                flex: 0.75 1 0
+        .history &
+            &:nth-child(3)
+                flex: 1.5 1 0
+        .history &
+            &:last-child
+                flex: 0.5 1 0
+        .balance &
+            &:first-child
+                flex: 0.5 1 0
+        .balance &
+            &:last-child
+                flex: 0.75 1 0
         &.out
             color: var(--blue__bright)
             font-weight: 600
@@ -800,10 +824,50 @@ hr
             transform-origin: center
             animation: flowIn 1s forwards
     &__graph
+        position: relative
+        img
+            width: 98%
+            height: auto
+    &__bubble
+        width: 60px
+        height: 40px
+        font-size: 1vw
+        background: url(../img/icons/bubble.svg) no-repeat 50%
+        border-radius: 8px
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0 0 0.2vw 0
+        position: absolute
+        pointer-events: none
+
+.graph
+    &__data
         width: 100%
-        height: 280px
-        background: url(../img/graph.svg) no-repeat 50%
-        background-size: contain
+        height: 100%
+        stroke-width: 6px
+        stroke-linecap: round
+        position: absolute
+        top: 0
+        left: 0
+        circle
+            stroke-width: 4px
+            opacity: 0
+            cursor: pointer
+            &.big-round
+                fill: url(#RadialGradient)
+                &:hover
+                    opacity: 0.5
+                    + circle
+                        opacity: 1
+                        + text
+                            opacity: 1
+            &.small-round
+                pointer-events: none
+        text
+            font-size: 18px
+            opacity: 0
+            transform: translate(-10px, -10px)
 
 @keyframes flowIn
     0%
@@ -1390,3 +1454,4 @@ hr
 @import layout/board
 @import layout/stream
 @import layout/userarea
+@import layout/datepicker

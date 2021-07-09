@@ -1,0 +1,32 @@
+// 
+// Theme Name: New Clean Template
+// _datepicker.sass
+//
+// app/sass/layout/
+//
+
+.datepicker
+    width: 300px
+    border: 1px solid var(--stroke)
+    padding: 0 10px
+    &--cell-day
+        height: 41px
+        border-radius: 50%
+
+.datepicker-inline .datepicker
+    border: 1px solid var(--stroke)
+.datepicker--day-name
+    color: var(--text)
+.datepicker--cell.-current-
+    color: var(--main)
+.datepicker--cell.-selected-, .datepicker--cell.-selected-.-current-
+    color: #fff
+    background: var(--main)
+.datepicker--cell.-selected-.-focus-
+    background: var(--main)
+
+.datepicker--nav-title
+    color: var(--main)
+    background: #F8F7FA
+    i
+        color: var(--text)
