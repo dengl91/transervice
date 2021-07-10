@@ -143,6 +143,8 @@ section
     width: 70%
 .col-75
     width: 75%
+.col-100
+    width: 100%
 .col-grow
     flex-grow: 1
 [class^=col]
@@ -267,6 +269,16 @@ input
     -webkit-appearance: none
     &::placeholder
         color: var(--placeholder)
+    &.note
+        color: var(--gray)
+        border-top: none
+        border-bottom: none
+        border-radius: 0
+        padding: 0 20px
+        margin: 0 -20px
+        &:read-only
+            border: 1px solid #fff
+            cursor: default
     &[type=checkbox]
         width: 24px
         height: 24px
@@ -290,6 +302,13 @@ input
         &:hover
             color: var(--main)
             background: none
+textarea
+    width: 100%
+    font-family: 'PT Root', sans-serif
+    border: 1px solid var(--stroke)
+    border-radius: 4px
+    padding: 20px
+    margin: 0 0 20px 0
 
 .checkbox
     &__content
@@ -388,6 +407,7 @@ ul
         background-position: 468px 0
 
 .table
+    font-size: 14px
     margin: 0 0 30px 0
     &__wrapper
         min-height: 330px
@@ -407,8 +427,7 @@ ul
         &:last-child
             border: none
     &__header
-        font-size: 16px
-        font-weight: 700
+        font-weight: 600
         .board &
             font-size: 14px
             font-weight: 400
@@ -428,6 +447,15 @@ ul
         .queue &
             &:last-child
                 flex: 0.75 1 0
+        .m-queue &
+            &:first-child
+                flex: 0.5 1 0
+        .m-queue &
+            &:nth-child(2)
+                flex: 0.5 1 0
+        .m-queue &
+            &:last-child
+                flex: 0 0 40px
         .history &
             &:first-child
                 flex: 0.75 1 0
@@ -465,6 +493,32 @@ ul
         margin: 0 0 10px 0
     &__message
         text-align: center
+    &__btn
+        width: 30px
+        height: 30px
+        background: url(../img/icons/more.svg) no-repeat 50%
+        position: relative
+        cursor: pointer
+        &.active
+            background: url(../img/icons/more-green.svg) no-repeat 50%
+    &__menu
+        background: #fff
+        border-radius: 4px
+        box-shadow: 0 0 10px #0000000a
+        padding: 10px 20px
+        display: none
+        position: absolute
+        top: 32px
+        right: 0
+        z-index: 1
+        &.active
+            display: block
+    &__menu-item
+        line-height: 40px
+        white-space: nowrap
+        border-bottom: 1px solid var(--stroke)
+        &:hover
+            color: var(--main)
 
 strong
     font-weight: 600
@@ -686,6 +740,7 @@ hr
 .btn
     color: #fff
     font-weight: 600
+    text-align: center
     line-height: 40px
     white-space: nowrap
     background: var(--main)
@@ -758,7 +813,8 @@ hr
         &:nth-child(3)
             margin: 0 0 30px 0
         span
-            font-weight: 600
+            font-weight: 700
+            margin: 0 10px 0 0
     &__btn
         color: var(--main)
         font-weight: 600
@@ -772,6 +828,14 @@ hr
         &:hover
             color: var(--main__hover)
             border: 1px solid var(--main__hover)
+    &__link
+        color: var(--main)
+        font-weight: 700
+        text-align: center
+        line-height: 40px
+        display: block
+        &:hover
+            text-decoration: underline
 
 .statistics
     &__title
@@ -845,7 +909,7 @@ hr
     &__data
         width: 100%
         height: 100%
-        stroke-width: 6px
+        stroke-width: 4px
         stroke-linecap: round
         position: absolute
         top: 0
@@ -868,6 +932,7 @@ hr
             font-size: 18px
             opacity: 0
             transform: translate(-10px, -10px)
+            pointer-events: none
 
 @keyframes flowIn
     0%
@@ -1087,6 +1152,8 @@ hr
         margin: 0 0 10px 0
     &__subtitle
         margin: 0 0 40px 0
+        span
+            font-weight: 700
     &__hint
         margin: 0 0 6px 0
     input[type=text]
@@ -1145,6 +1212,34 @@ hr
         font-weight: 700
         line-height: 1.5
         margin: 30px 0
+
+.collapse
+    max-height: 48px
+    background: #fff
+    border-radius: 4px
+    box-shadow: 0 8px 8px #0000000a
+    padding: 0 20px
+    margin: 0 0 20px 0
+    overflow: hidden
+    &.active
+        max-height: 100vh
+        overflow: visible
+    &__title
+        height: 48px
+        font-weight: 700
+        background: url(../img/icons/arrow-up.svg) no-repeat top 50% right 2px
+        border-bottom: 1px solid #fff
+        display: flex
+        align-items: center
+        padding: 0
+        cursor: pointer
+        .active > &
+            background: url(../img/icons/arrow-down.svg) no-repeat top 50% right 2px
+            border-bottom: 1px solid var(--stroke)
+    &__content
+        padding: 20px 0
+        .table
+            margin: 0
 
 .faq
     &__item
@@ -1455,3 +1550,4 @@ hr
 @import layout/stream
 @import layout/userarea
 @import layout/datepicker
+@import layout/manager

@@ -60,19 +60,19 @@
                     <div class="workload">
                         <div class="workload__top">
                             <div class="workload__title">7-13 июня</div>
-                            <div class="workload__description">Грузовые ТС</div>
+                            <div class="workload__description">Регистраций в очереди</div>
                             <div class="workload__hint">Среднее значение</div>
                         </div>
                         <div class="workload__graph">
-                            <img src="public/img/graph.svg" alt="graph">
+                            <!-- <img src="public/img/graph.svg" alt="graph">
                             <svg class="graph__data" viewBox="0 0 670 294">
                                 <radialGradient id="RadialGradient">
                                     <stop offset="0%" stop-color="#55BC7E"/>
                                     <stop offset="50%" stop-color="#ffffff00"/>
                                 </radialGradient>
-                            </svg>
+                            </svg> -->
+                            <canvas id="statChart" width="400" height="200"></canvas>
                         </div>
-                        <div class="workload__description">В разработке</div>
                     </div>
                 </div>
                 <div class="col-40">
@@ -114,6 +114,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
     <script src="public/js/main.js"></script>
     
 </body>

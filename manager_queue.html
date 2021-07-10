@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transervice</title>
+    
+    <link rel="stylesheet" href="public/css/common.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container wide">
+            <a href="" class="logo">
+                <img src="public/img/logo.svg" alt="Трансервис">
+            </a>
+            <nav class="nav">
+                <a href="instruction.html">Инструкция</a>
+                <a href="online.html">Онлайн-трансляция</a>
+                <a href="about-us.html">О нас</a>
+                <a href="account.html" class="user__name active">Андрей О.</a>
+            </nav>
+            <div class="menu-btn">
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+                <div class="menu-btn__item"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="userarea">
+        <div class="u-sidebar">
+            <div class="u-sidebar__top">
+                <div class="u-sidebar__name">Андрей Овсов</div>
+                <div class="u-sidebar__balance">Оператор №22</div>
+            </div>
+            <div class="u-sidebar__menu">
+                <a href="manager_queue.html" class="u-sidebar__item queue active" data-toggle>Очередь</a>
+                <a href="manager_online.html" class="u-sidebar__item online" data-toggle>Трансляция</a>
+                <a href="manager_declaration.html" class="u-sidebar__item notice" data-toggle>Объявления</a>
+                <a href="manager_statistics.html" class="u-sidebar__item statistics" data-toggle>Статистика</a>
+                <a href="manager_archive.html" class="u-sidebar__item archive" data-toggle>Архив</a>
+                <a href="manager_instruction.html" class="u-sidebar__item instruction" data-toggle>Инструкция</a>
+            </div>
+            <div class="u-sidebar__text">
+                <span>Телефон</span>
+                <a href="tel:+79210000000">+7 (921) 000-00-00</a>
+            </div>
+            <div class="u-sidebar__text">
+                <span>Почта</span>
+                <a href="mailto:info@russianborder.ru">info@russianborder.ru</a>
+            </div>
+            <a href="" class="u-sidebar__logout">Выйти</a>
+        </div>
+        <div class="u-area">
+            <div class="u-area__title">Очередь</div>
+            <div class="m-top__content">
+                <div class="row">
+                    <div class="col-65">
+                        <label for="m-search">Поиск</label>
+                        <input type="text" id="m-search" placeholder="По дате, госномеру ТС или примечанию">
+                    </div>
+                    <div class="col-35">
+                        <div class="m-top__info">Очередь движется в обычном порядке</div>
+                        <div class="btn" data-stop>Приостановить очередь</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <div class="collapse active">
+                        <div class="collapse__title" data-collapse>Таможенная зона (2)</div>
+                        <div class="collapse__content">
+                            <div class="table m-queue">
+                                <div class="table__row table__header">
+                                    <div class="table__item">№ талона</div>
+                                    <div class="table__item">Госномер ТС</div>
+                                    <div class="table__item">Ожидание после регистрации</div>
+                                    <div class="table__item">Проезд на таможню</div>
+                                    <div class="table__item">Примечание</div>
+                                    <div class="table__item"></div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                    <div class="table__item note">Примечание</div>
+                                    <div class="table__item">
+                                        <div class="table__btn">
+                                            <div class="table__menu">
+                                                <div class="table__menu-item" data-control="modal--ticket-custom">Талон</div>
+                                                <div class="table__menu-item">История водителя</div>
+                                                <div class="table__menu-item">История атвомобиля</div>
+                                                <div class="table__menu-item" data-control="modal--note">Примечание</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                    <div class="table__item note"></div>
+                                    <div class="table__item">
+                                        <div class="table__btn">
+                                            <div class="table__menu">
+                                                <div class="table__menu-item" data-control="modal--ticket-custom">Талон</div>
+                                                <div class="table__menu-item">История водителя</div>
+                                                <div class="table__menu-item">История атвомобиля</div>
+                                                <div class="table__menu-item" data-control="modal--note">Примечание</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse">
+                        <div class="collapse__title" data-collapse>Зона с приоритетом (2)</div>
+                        <div class="collapse__content">
+                            <div class="table m-queue">
+                                <div class="table__row table__header">
+                                    <div class="table__item">№ талона</div>
+                                    <div class="table__item">Госномер ТС</div>
+                                    <div class="table__item">Ожидание после регистрации</div>
+                                    <div class="table__item">Проезд на таможню</div>
+                                    <div class="table__item">Примечание</div>
+                                    <div class="table__item"></div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                    <div class="table__item note"></div>
+                                    <div class="table__item">
+                                        <div class="table__btn">
+                                            <div class="table__menu">
+                                                <div class="table__menu-item" data-control="modal--ticket">Талон</div>
+                                                <div class="table__menu-item" data-control="modal--ticket-delete">Удалить регистрацию</div>
+                                                <div class="table__menu-item">История водителя</div>
+                                                <div class="table__menu-item">История атвомобиля</div>
+                                                <div class="table__menu-item">Перенести в зону ожидания</div>
+                                                <div class="table__menu-item" data-control="modal--note">Примечание</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse">
+                        <div class="collapse__title" data-collapse>Предтаможенная зона (4)</div>
+                        <div class="collapse__content">
+                            <div class="table m-queue">
+                                <div class="table__row table__header">
+                                    <div class="table__item">№ талона</div>
+                                    <div class="table__item">Госномер ТС</div>
+                                    <div class="table__item">Ожидание после регистрации</div>
+                                    <div class="table__item">Проезд на таможню</div>
+                                    <div class="table__item">Примечание</div>
+                                    <div class="table__item"></div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                    <div class="table__item">Примечание</div>
+                                    <div class="table__item">
+                                        <div class="table__btn">
+                                            <div class="table__menu">
+                                                <div class="table__menu-item" data-control="modal--ticket">Талон</div>
+                                                <div class="table__menu-item" data-control="modal--ticket-delete">Удалить регистрацию</div>
+                                                <div class="table__menu-item">История водителя</div>
+                                                <div class="table__menu-item">История атвомобиля</div>
+                                                <div class="table__menu-item" data-control="modal--note">Примечание</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__item">С158</div>
+                                    <div class="table__item">256 XAG</div>
+                                    <div class="table__item">16:50</div>
+                                    <div class="table__item">00:30</div>
+                                    <div class="table__item"></div>
+                                    <div class="table__item">
+                                        <div class="table__btn">
+                                            <div class="table__menu">
+                                                <div class="table__menu-item" data-control="modal--ticket">Талон</div>
+                                                <div class="table__menu-item" data-control="modal--ticket-delete">Удалить регистрацию</div>
+                                                <div class="table__menu-item">История водителя</div>
+                                                <div class="table__menu-item">История атвомобиля</div>
+                                                <div class="table__menu-item" data-control="modal--note">Примечание</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal modal--request">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Занять место</div>
+                <div class="modal__subtitle">Укажите личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" placeholder="+7(______)______-__-__" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" placeholder="__ __   __ __   __ __ __ __ __ __">
+                <div class="checkbox__content">
+                    <input type="checkbox" id="agreement">
+                    <label for="agreement">Я принимаю условия <a href="/">политики конфиднциальности</a></label>
+                </div>
+                <input type="submit" value="Занять очередь">
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <div class="modal modal--settings">
+        <div class="modal__container">
+            <form class="form form--request">
+                <div class="modal__title">Личные данные</div>
+                <div class="modal__subtitle">Отредактируйте личные данные</div>
+                <div class="modal__hint">Имя и фамилия*</div>
+                <input type="text" name="username" placeholder="Введите имя и фамилию" required>
+                <div class="modal__hint">Номер телефона*</div>
+                <input type="text" name="username" value="+7 965 749 36-20" required>
+                <div class="modal__hint">Номер и серия паспорта</div>
+                <input type="text" name="username" value="33 25 362647">
+                <div class="btns">
+                    <div class="btn stroke" data-close>Отмена</div>
+                    <div class="btn">Сохранить</div>
+                </div>
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <div class="modal modal--note">
+        <div class="modal__container">
+            <form class="form form--note">
+                <div class="modal__title">Новое примечание</div>
+                <textarea name="note" cols="30" rows="10"></textarea>
+                <div class="btns">
+                    <div class="btn stroke" data-close>Отмена</div>
+                    <input type="submit" class="btn" value="Сохранить">
+                </div>
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <div class="modal modal--ticket">
+        <div class="modal__container">
+            <div class="ticket__title">Талон 158</div>
+            <div class="ticket__feature"><span>Водитель:</span> Андрей Овсов</div>
+            <div class="ticket__feature"><span>Телефон:</span> +7 965 746 36 20</div>
+            <div class="ticket__feature"><span>Номер ТС:</span> М653ТУ 178</div>
+            <div class="ticket__feature"><span>Регистрация ТС:</span> Россия</div>
+            <div class="ticket__feature"><span>Время бронирования:</span> 15 мая 10:00</div>
+            <div class="ticket__feature"><span>Тип регистрации:</span> на сайте</div>
+            <div class="ticket__feature"><span>Услуги:</span> SMS за 30 минут до вызова</div>
+            <div class="ticket__btn">Удалить</div>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <div class="modal modal--ticket-delete">
+        <div class="modal__container">
+            <form class="form form--ticket-delete">
+                <div class="modal__title">Удаление регистрации</div>
+                <div class="modal__subtitle">Вы уверены, что хотите удалить регистрацию автомобиля <span>622 MGV</span>. Это действие невозможно будет отменить, а деньги, оплаченные за бронирование, вернуться водителю?</div>
+                <input type="hidden" name="post_id" value="622">
+                <div class="btns">
+                    <div class="btn stroke" data-close>Отмена</div>
+                    <input type="submit" class="btn" value="Удалить">
+                </div>
+            </form>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <div class="modal modal--ticket-custom">
+        <div class="modal__container">
+            <div class="ticket__title">Талон 158</div>
+            <div class="ticket__feature"><span>Водитель:</span> Андрей Овсов</div>
+            <div class="ticket__feature"><span>Телефон:</span> +7 965 746 36 20</div>
+            <div class="ticket__feature"><span>Номер ТС:</span> М653ТУ 178</div>
+            <div class="ticket__feature"><span>Регистрация ТС:</span> Россия</div>
+            <div class="ticket__feature"><span>Время бронирования:</span> 15 мая 10:00</div>
+            <div class="ticket__feature"><span>Тип регистрации:</span> на сайте</div>
+            <div class="ticket__feature"><span>Услуги:</span> SMS за 30 минут до вызова</div>
+            <p></p>
+            <a href="" class="ticket__link">История автомобиля</a>
+            <a href="" class="ticket__link">История водителя</a>
+            <div class="modal__close"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="public/js/main.js"></script>
+    
+</body>
+</html>
