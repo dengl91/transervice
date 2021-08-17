@@ -91,12 +91,13 @@
     <section class="declaration">
         <div class="container">
             <div class="row">
-                <div class="col-70">
+                <div class="col-65">
                     <div class="declaration__content">
                         <div class="declaration__title">Объявления от администратора</div>
                         <div class="declaration__item">
                             <div class="declaration__date">15 мая 12:00</div>
-                            <div class="declaration__intro">В зоне ожидания произойдет отключение электроэнергии, поэтому на это время будет отключено электронное табло. Очередность проезда для зарегистрированных водителейв данный период времени возможно будет отслеживать только на сайте. Здесь будет еще текст объявления. Пример для того чтобы показать какой длины будет длинное объвление от адми...</div>
+                            <div class="declaration__intro">В зоне ожидания произойдет отключение электроэнергии, поэтому на это время будет отключено электронное табло. Очередность проезда для зарегистрированных водителейв данный период времени возможно будет отслеживать только на сайте. Здесь будет еще текст объявления. Пример для того чтобы показать какой длины будет длинное объвление от администратора</div>
+                            <div class="declaration__readmore" data-readmore>Читать дальше</div>
                         </div>
                         <div class="declaration__item">
                             <div class="declaration__date">1 мая 12:00</div>
@@ -108,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-30">
+                <div class="col-35">
                     <div class="ticket">
                         <div class="ticket__title">Талон 158</div>
                         <div class="ticket__feature"><span>Водитель:</span> Андрей Овсов</div>
@@ -137,27 +138,28 @@
                 </div>
             </div>
             <div class="row workload__row">
-                <div class="col-40">
+                <div class="col-35">
                     <div class="workload">
                         <div class="workload__top">
                             <div class="workload__title">Время суток</div>
                             <div class="workload__hint">Среднее значение</div>
                         </div>
                         <div class="workload__chart">
-                            <svg class="workload__data" width="280" height="280"></svg>
+                            <!-- <svg class="workload__data" id="pieChart" width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg"></svg> -->
                         </div>
                         <div class="workload__description">Грузовые ТС</div>
                     </div>
                 </div>
-                <div class="col-60">
+                <div class="col-65">
                     <div class="workload">
                         <div class="workload__top">
                             <div class="workload__title">7-13 июня</div>
                             <div class="workload__description">Грузовые ТС</div>
                             <div class="workload__hint">Среднее значение</div>
                         </div>
-                        <div class="workload__graph"></div>
-                        <div class="workload__description">В разработке</div>
+                        <div class="workload__graph">
+                            <canvas id="statChart" width="400" height="200"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -172,9 +174,9 @@
                 <div class="modal__hint">Имя и фамилия*</div>
                 <input type="text" name="username" placeholder="Введите имя и фамилию" required>
                 <div class="modal__hint">Номер телефона*</div>
-                <input type="text" name="username" placeholder="+7(______)______-__-__" required>
-                <div class="modal__hint">Номер и серия паспорта</div>
-                <input type="text" name="username" placeholder="__ __   __ __   __ __ __ __ __ __">
+                <input type="text" name="userphone" required>
+                <div class="modal__hint">E-mail</div>
+                <input type="text" name="email">
                 <div class="checkbox__content">
                     <input type="checkbox" id="agreement">
                     <label for="agreement">Я принимаю условия <a href="/">политики конфиднциальности</a></label>
@@ -198,6 +200,8 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
     <script src="public/js/main.js"></script>
     
 </body>

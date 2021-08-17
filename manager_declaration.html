@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Transervice</title>
     
     <link rel="stylesheet" href="public/css/common.css">
@@ -42,31 +42,60 @@
             <a href="" class="u-sidebar__logout">Выйти</a>
         </div>
         <div class="u-area">
-            <div class="u-area__title">Онлайн трансляция</div>
-            <div class="row">
-                <div class="col-65">
-                    <div class="text__content">
-                        <iframe src='https://www.cameraftp.com/Camera/CameraPlayer.aspx/parentID75626514/shareID12935277/isEmbeddedtrue/upperdeck' class="stream__img" scrolling='no' autoplay></iframe>
+            <div class="u-area__title">Объявления</div>
+            <div class="manager-declaration__content">
+                <div class="declaration__item">
+                    <div class="declaration__date">15 мая 12:00</div>
+                    <div class="declaration__intro">В зоне ожидания произойдет отключение электроэнергии, поэтому на это время будет отключено электронное табло. Очередность проезда для зарегистрированных водителейв данный период времени возможно будет отслеживать только на сайте. Здесь будет еще текст объявления. Пример для того чтобы показать какой длины будет длинное объвление от администратора. Пример для того чтобы показать какой длины будет длинное объвление от администратора.</div>
+                    <div class="declaration__actions">
+                        <div class="declaration__edit" data-edit></div>
+                        <div class="declaration__delete" data-delete></div>
                     </div>
                 </div>
-                <div class="col-35">
-                    <div class="u-area__sideboard">
-                        <div class="row">
-                            <div class="col-grow">
-                                <div class="board__num">300</div>
-                                <div class="board__subtitle">стоят в очереди</div>
-                            </div>
-                            <div class="col-grow">
-                                <div class="board__num">300</div>
-                                <div class="board__subtitle">заняли очередь</div>
-                            </div>
-                            <div class="col-grow">
-                                <div class="board__num">≈99 часов</div>
-                                <div class="board__subtitle">ожидание после регистрации</div>
-                            </div>
-                        </div>
+                <div class="btns">
+                    <div class="btn stroke" data-edit-cancel>Отмена</div>
+                    <div class="btn">Сохранить</div>
+                </div>
+                <div class="declaration__item">
+                    <div class="declaration__date">1 мая 12:00</div>
+                    <div class="declaration__intro">В транзитной зоне, движение ТС на Кингисеппском шоссе будет перекрыто в связи с проведением парада Победы. </div>
+                    <div class="declaration__actions">
+                        <div class="declaration__edit" data-edit></div>
+                        <div class="declaration__delete" data-delete></div>
                     </div>
                 </div>
+                <div class="btns">
+                    <div class="btn stroke" data-edit-cancel>Отмена</div>
+                    <div class="btn">Сохранить</div>
+                </div>
+                <div class="declaration__item">
+                    <div class="declaration__date">20 апреля 12:00</div>
+                    <div class="declaration__intro">Терминал в зоне прибытия сломан. Регистрация для незарегистрированных водителей и распечатка талонов для зарегистрированных водителей производится в аварийном режиме оператором сервиса.</div>
+                    <div class="declaration__actions">
+                        <div class="declaration__edit" data-edit></div>
+                        <div class="declaration__delete" data-delete></div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <div class="btn stroke" data-edit-cancel>Отмена</div>
+                    <div class="btn">Сохранить</div>
+                </div>
+                <div class="declaration__item">
+                    <div class="declaration__date">1 мая 12:00</div>
+                    <div class="declaration__intro">В транзитной зоне, движение ТС на Кингисеппском шоссе будет перекрыто в связи с проведением парада Победы. </div>
+                    <div class="declaration__actions">
+                        <div class="declaration__edit" data-edit></div>
+                        <div class="declaration__delete" data-delete></div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <div class="btn stroke" data-edit-cancel>Отмена</div>
+                    <div class="btn">Сохранить</div>
+                </div>
+            </div>
+            <div class="manager-declaration__input">
+                <textarea name="declaration" rows="1" placeholder="Напишите объявление..."></textarea>
+                <input type="submit" class="btn manager-declaration__btn" value="Опубликовать">
             </div>
         </div>
     </section>
@@ -141,11 +170,11 @@
         </div>
     </div>
 
-    <div class="modal modal--ticket-delete">
+    <div class="modal modal--declaration-delete">
         <div class="modal__container">
-            <form class="form form--ticket-delete">
-                <div class="modal__title">Удаление регистрации</div>
-                <div class="modal__subtitle">Вы уверены, что хотите удалить регистрацию автомобиля <span>622 MGV</span>. Это действие невозможно будет отменить, а деньги, оплаченные за бронирование, вернуться водителю?</div>
+            <form class="form form--declaration-delete">
+                <div class="modal__title">Удалить объявление</div>
+                <div class="modal__subtitle">Вы уверены, что хотите удалить объявление?<br> Это действие отменить будет невозможно?</div>
                 <input type="hidden" name="post_id" value="622">
                 <div class="btns">
                     <div class="btn stroke" data-close>Отмена</div>

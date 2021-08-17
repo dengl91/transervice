@@ -26,6 +26,57 @@
             $(this).closest('.collapse').toggleClass('active');
         });
 
+        $('[data-readmore]').on('click', function () {
+            $(this).toggleText('Читать дальше', 'Свернуть');
+            $(this).closest('.declaration__item').toggleClass('active');
+        });
+
+        $('[data-edit]').on('click', function () {
+            $(this).closest('[class*=item]').find('.declaration__intro').attr('contentEditable', 'true').focus();
+            $(this).closest('[class*=item]').addClass('editable');
+            $(this).closest('[class*=item]').next('.btns').addClass('active');
+        });
+
+        $('[data-edit-cancel]').on('click', function () {
+            $(this).closest('.btns').prev('[class*=item]').find('.declaration__intro').attr('contentEditable', 'false');
+            $(this).closest('.btns').prev('[class*=item]').removeClass('editable');
+            $(this).closest('.btns').removeClass('active');
+        });
+
+        $('.declaration__intro').on('focus', function() {
+            var cell = this;
+            // select all text in contenteditable
+            // see http://stackoverflow.com/a/6150060/145346
+            var range, selection;
+            if (document.body.createTextRange) {
+              range = document.body.createTextRange();
+              range.moveToElementText(cell);
+              range.select();
+            } else if (window.getSelection) {
+              selection = window.getSelection();
+              range = document.createRange();
+              range.selectNodeContents(cell);
+              selection.removeAllRanges();
+              selection.addRange(range);
+            }
+        });
+
+        $('[data-delete]').on('click', function () {
+            $('.modal--declaration-delete').addClass('active');
+        });
+
+        $.fn.extend({
+            toggleText: function(a, b){
+                return this.text(this.text() == b ? a : b);
+            }
+        });
+
+        $('textarea[name=declaration]').keyup( function() {
+            let height = this.scrollHeight + 'px';
+            $(this).css('height', height);
+            $('.manager-declaration__input').css('height', height);
+        });
+
         // menu-btn
 
         $('.menu-btn').on('click', function () {
@@ -65,6 +116,21 @@
             }
         });
 
+        // header
+
+        if ( $(window).scrollTop() > 0 ) {
+            $('.header').addClass('scroll');
+        }
+
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if ( scroll > 0 ) {
+                $('.header').addClass('scroll');
+            } else {
+                $('.header').removeClass('scroll');
+            }
+        });
+
         // checkbox
 
         $('.checkbox').on('click', function () {
@@ -97,14 +163,11 @@
 
         // chart
 
-        var data = [60, 65, 60, 100, 60, 65, 40, 65, 60, 100, 60, 65, 65, 90, 65, 60, 65, 60, 65, 60, 90, 50, 60, 65];
-        var $chart = $('.workload__data');
+        var data = [70, 65, 60, 70, 60, 65, 60, 65, 60, 80, 60, 65, 70, 80, 65, 60, 65, 60, 58, 70, 65, 80, 70, 60];
+        var $chart = $('.workload__chart');
         $.each(data, function (index, value) {
-            var $bar = $(document.createElementNS('http://www.w3.org/2000/svg', 'polygon')).attr({
-                fill: '#55BC7E',
-                points: '140 140 131 ' + (130 - value) + ' 150 ' + (130 - value),
-                transform: 'rotate(' + index * 15 + ')'
-            });
+            var $bar = document.createElement('div');
+            $bar.setAttribute('style', 'height: ' + value * 1.2 + 'px; transform: rotate(' + 15 * index + 'deg)');
             $chart.append($bar);
         });
 
@@ -162,7 +225,7 @@
 
         // chart
 
-        if ($('#statChart').length) {
+        if ( $('#statChart').length ) {
             var ctx = document.getElementById('statChart').getContext('2d');
             const DATA_COUNT = 12;
             const labels = [];
@@ -172,7 +235,7 @@
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Пн', 'Пн 04:00', 'Пн 08:00', 'Пн 12:00', 'Пн 16:00', 'Пн 20:00', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс'],
+                    labels: ['Пн', 'Пн', 'Пн', 'Пн', 'Пн', 'Пн', 'Пн', 'Пн', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Вт', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Ср', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Чт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Пт', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Сб', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс', 'Вс'],
                     datasets: [{
                         data: [80, 78, 65, 70, 72, 74, 78, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 68, 64, 62, 60, 58, 60, 80, 78, 65, 70, 72, 74, 78, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 62, 64, 66, 68, 80, 78, 65, 70, 72, 74, 78, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 62, 64, 66, 68, 80, 78, 65, 70, 72, 74, 78, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 62, 64, 66, 68, 80, 78, 65, 70, 72, 74, 78, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 62, 64, 66, 68, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58, 60, 64, 66, 68, 72, 64, 60, 62, 68, 64, 62, 60, 58, 56, 54, 52, 54, 56, 58],
                         label: 'Регистраций в очереди',
@@ -183,7 +246,7 @@
                         tension: 0.4,
                         fill: false,
                         pointStyle: 'circle',
-                        pointRadius: 3,
+                        pointRadius: 2,
                     }]
                 },
                 options: {
@@ -197,7 +260,7 @@
                             ticks: {
                                 callback: function (val, index) {
                                     // Hide the label of every 8nd dataset
-                                    return index % 8 === 0 ? this.getLabelForValue(val) : '';
+                                    return index % 4 === 0 ? this.getLabelForValue(val) : '';
                                 }
                             }
                         },
@@ -220,6 +283,17 @@
                     },
                 }
             });
+        }
+
+        // phonemask
+
+        var user_phone = document.querySelector('[name=userphone]');
+        var maskOptions = {
+            mask: '+7 (000) 000-00-00',
+            lazy: false
+        } 
+        if ( user_phone ) {
+            var mask = new IMask(user_phone, maskOptions);
         }
 
         // populate filter
@@ -414,80 +488,5 @@
             $(this).closest('section').find('.tab-nav__content').eq(index).addClass('active');
         });
 
-        // Custom select
-
-        var x, i, j, selElmnt, a, b, c;
-        /*look for any elements with the class "custom-select":*/
-        x = document.getElementsByClassName("custom-select");
-        for (i = 0; i < x.length; i++) {
-            selElmnt = x[i].getElementsByTagName("select")[0];
-            /*for each element, create a new DIV that will act as the selected item:*/
-            a = document.createElement("DIV");
-            a.setAttribute("class", "select-selected");
-            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-            x[i].appendChild(a);
-            /*for each element, create a new DIV that will contain the option list:*/
-            b = document.createElement("DIV");
-            b.setAttribute("class", "select-items select-hide");
-            for (j = 1; j < selElmnt.length; j++) {
-                /*for each option in the original select element,
-                create a new DIV that will act as an option item:*/
-                c = document.createElement("DIV");
-                c.innerHTML = selElmnt.options[j].innerHTML;
-                c.addEventListener("click", function (e) {
-                    /*when an item is clicked, update the original select box,
-                    and the selected item:*/
-                    var y, i, k, s, h;
-                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                    h = this.parentNode.previousSibling;
-                    for (i = 0; i < s.length; i++) {
-                        if (s.options[i].innerHTML == this.innerHTML) {
-                            s.selectedIndex = i;
-                            h.innerHTML = this.innerHTML;
-                            y = this.parentNode.getElementsByClassName("same-as-selected");
-                            for (k = 0; k < y.length; k++) {
-                                y[k].removeAttribute("class");
-                            }
-                            this.setAttribute("class", "same-as-selected");
-                            break;
-                        }
-                    }
-                    h.click();
-                });
-                b.appendChild(c);
-            }
-            x[i].appendChild(b);
-            a.addEventListener("click", function (e) {
-                /*when the select box is clicked, close any other select boxes,
-                and open/close the current select box:*/
-                e.stopPropagation();
-                closeAllSelect(this);
-                this.nextSibling.classList.toggle("select-hide");
-                this.classList.toggle("select-arrow-active");
-            });
-        }
-        function closeAllSelect(elmnt) {
-            /*a function that will close all select boxes in the document,
-            except the current select box:*/
-            var x, y, i, arrNo = [];
-            x = document.getElementsByClassName("select-items");
-            y = document.getElementsByClassName("select-selected");
-            for (i = 0; i < y.length; i++) {
-                if (elmnt == y[i]) {
-                    arrNo.push(i)
-                } else {
-                    y[i].classList.remove("select-arrow-active");
-                }
-            }
-            for (i = 0; i < x.length; i++) {
-                if (arrNo.indexOf(i)) {
-                    x[i].classList.add("select-hide");
-                }
-            }
-        }
-        /*if the user clicks anywhere outside the select box,
-        then close all select boxes:*/
-        document.addEventListener("click", closeAllSelect);
-
     });
-})($);
+})( jQuery );

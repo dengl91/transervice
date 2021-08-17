@@ -68,7 +68,7 @@ body
     font-family: 'PT Root', sans-serif
     font-size: var(--size)
     color: var(--text)
-    padding: 0
+    padding: 84px 0 0 0
     margin: 0
     &.unscroll
         overflow: hidden
@@ -190,11 +190,15 @@ section
 
 .header
     width: 100%
-    box-shadow: 0 10px 10px #00000003
     padding: 20px 0
-    position: relative
-    &.hide
-        transform: translateY(-140px)
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 1
+    transition: 0.3s
+    &.scroll
+        background: #fff
+        box-shadow: 0 10px 20px #00000014
     .admin-bar &
         top: 32px
     .container
@@ -222,6 +226,9 @@ section
             cursor: pointer
             -webkit-appearance: none
 
+.home .scroll .user__name
+    color: var(--text)
+
 .logo
     margin: 0 30px 0 0
 
@@ -236,9 +243,10 @@ nav
         margin: 0 20px 0 0
         position: relative
         &:hover
-            color: var(--main)
+            color: var(--main__hover)
         &.active
             color: var(--main)
+            text-decoration: underline
 
 .submenu
     max-height: 0
@@ -300,11 +308,12 @@ input
         transition: 0.3s
         -webkit-appearance: none
         &:hover
-            color: var(--main)
-            background: none
+            background: var(--main__hover)
+            border: 2px solid var(--main__hover)
 textarea
     width: 100%
     font-family: 'PT Root', sans-serif
+    font-size: 16px
     border: 1px solid var(--stroke)
     border-radius: 4px
     padding: 20px
@@ -424,13 +433,17 @@ ul
         border-bottom: 1px solid var(--stroke)
         display: flex
         padding: 4px 0
+        &.active
+            color: var(--main)
+            font-weight: 700
         &:last-child
             border: none
     &__header
-        font-weight: 600
+        font-size: 16px
+        font-weight: 700
         .board &
             font-size: 14px
-            font-weight: 400
+            font-weight: 700
         .table__item
             align-items: flex-start
     &__item
@@ -480,12 +493,12 @@ ul
     &__in
         width: 30px
         height: 30px
-        background: url(../img/icons/arrow-down.svg) no-repeat 50% var(--green)
+        background: url(../img/icons/balance__arrow-down.svg) no-repeat 50% var(--green)
         border-radius: 4px
     &__out
         width: 30px
         height: 30px
-        background: url(../img/icons/arrow-up.svg) no-repeat 50% var(--blue)
+        background: url(../img/icons/balance__arrow-up.svg) no-repeat 50% var(--blue)
         border-radius: 4px
     &__hint
         font-size: 20px
@@ -539,6 +552,8 @@ hr
         h3
             font-size: 1rem
             margin: 30px 0 20px 0
+        p
+            line-height: 1.5
         ul
             list-style-type: disc
             padding: 0 0 0 18px
@@ -592,8 +607,8 @@ hr
         font-weight: 700
         margin: 0 0 6px 0
     &__text
-        font-size: 14px
-        line-height: 20px
+        font-size: 16px
+        line-height: 1.5
 
 /* style the arrow inside the select element */
 
@@ -752,14 +767,15 @@ hr
     cursor: pointer
     transition: 0.4s
     &:hover
-        color: var(--main)
-        background: none
+        background: var(--main__hover)
+        border: 2px solid var(--main__hover)
     &.stroke
         color: var(--main)
-        background: none
+        background: #fff
         &:hover
-            color: #fff
-            background: var(--main)
+            color: var(--main__hover)
+            background: #fff
+            border: 2px solid var(--main__hover)
     i
         transform: translateY(2px)
 
@@ -769,6 +785,12 @@ hr
         width: 50%
         &:last-child
             margin: 0 0 0 15px
+    .manager-declaration__content &
+        max-width: 300px
+        margin: 0 0 20px 0
+        display: none
+    .manager-declaration__content &.active
+        display: flex
 
 .declaration
     background: var(--blue__light)
@@ -781,19 +803,151 @@ hr
         padding: 40px
     &__title
         font-size: 24px
-        font-weight: 600
+        font-weight: 700
         margin: 0 0 30px 0
     &__item
+        max-width: 760px
         font-size: 15px
+        background: #fff
         border: 1px solid var(--stroke) !important
         border-radius: 10px
         padding: 20px
         margin: 0 0 20px 0
+        position: relative
+        &.editable
+            background: #E8EEFD
     &__date
         font-weight: 600
         margin: 0 0 15px 0
+    &__intro
+        max-height: 100px
+        font-size: 16px
+        line-height: 1.5
+        text-overflow: ellipsis
+        display: -webkit-box
+        -webkit-line-clamp: 4
+        -webkit-box-orient: vertical
+        overflow: hidden
+        .active > &
+            max-height: unset
+            -webkit-line-clamp: unset
+        .manager-declaration__content &
+            max-height: unset
+            -webkit-line-clamp: unset
+        &[contenteditable=true]
+            outline: none
+    &__readmore
+        color: #3760DA
+        text-decoration: underline
+        margin: 4px 0 0 0
+        cursor: pointer
+    &__actions
+        display: flex
+        position: absolute
+        top: 20px
+        right: 20px
+    &__edit
+        width: 20px
+        height: 20px
+        background: url(../img/icons/edit.svg) no-repeat 50%
+        margin: 0 10px 0 0
+        position: relative
+        cursor: pointer
+        &:hover
+            background: url(../img/icons/edit--hover.svg) no-repeat 50%
+        &::after
+            content: 'Редактировать'
+            color: #fff
+            text-align: center
+            line-height: 30px
+            background: var(--text)
+            border-radius: 4px
+            padding: 0 10px
+            opacity: 0
+            position: absolute
+            left: -10px
+            bottom: 24px
+            z-index: 1
+            transition: 0.3s
+            pointer-events: none
+            [class*=item]:first-child &
+                top: 24px
+                bottom: auto
+        &:hover
+            &::after
+                opacity: 1
+    &__delete
+        width: 20px
+        height: 20px
+        background: url(../img/icons/delete.svg) no-repeat 50%
+        position: relative
+        cursor: pointer
+        &:hover
+            background: url(../img/icons/delete--hover.svg) no-repeat 50%
+        &::after
+            content: 'Удалить'
+            color: #fff
+            text-align: center
+            line-height: 30px
+            background: var(--text)
+            border-radius: 4px
+            padding: 0 10px
+            opacity: 0
+            position: absolute
+            left: -10px
+            bottom: 24px
+            z-index: 1
+            transition: 0.3s
+            pointer-events: none
+            [class*=item]:first-child &
+                top: 24px
+                bottom: auto
+        &:hover
+            &::after
+                opacity: 1
+
+.manager-declaration
+    &__content
+        height: calc(100vh - 220px)
+        overflow: auto
+        &::-webkit-scrollbar-track
+            background-color: #fff
+            border-radius: 10px
+        &::-webkit-scrollbar
+            width: 10px
+            background-color: #ffffff00
+        &::-webkit-scrollbar-thumb
+            border-radius: 8px
+            background-color: var(--sidebar)
+    &__input
+        width: 100%
+        height: 60px
+        background: #fff
+        border-top: 1px solid var(--stroke)
+        box-shadow: 10px -10px 10px #ffffff80
+        position: absolute
+        left: 0
+        bottom: 0
+        textarea
+            width: 80%
+            min-height: 60px
+            border: none
+            border-top: 1px solid var(--stroke)
+            border-radius: 0
+            margin: 0
+            position: absolute
+            bottom: 0
+            overflow: hidden
+            resize: none
+        .btn
+            width: 180px
+            text-align: center
+            position: absolute
+            right: 20px
+            bottom: 6px
 
 .ticket
+    max-width: 340px
     background: #fff
     border-radius: 10px
     box-shadow: 0 0 10px #00000014
@@ -808,7 +962,6 @@ hr
     &__feature
         font-size: 15px
         display: flex
-        justify-content: space-between
         padding: 6px 0
         &:nth-child(3)
             margin: 0 0 30px 0
@@ -840,9 +993,10 @@ hr
 .statistics
     &__title
         font-size: 32px
-        font-weight: 600
+        font-weight: 700
         margin: 0 0 30px 0
     &__description
+        line-height: 1.5
         padding: 8px 0 0 0
 
 .workload
@@ -867,6 +1021,16 @@ hr
         height: 280px
         background: url(../img/workload.svg) no-repeat 50%
         margin: 0 auto
+        position: relative
+        div
+            width: 18px
+            background: var(--main)
+            border-radius: 4px 4px 0 0
+            position: absolute
+            left: 135px
+            bottom: 135px
+            transform-origin: 50% 100%
+            clip-path: polygon(50% 100%, 0 0, 100% 0)
     &__description
         display: flex
         align-items: center
@@ -884,9 +1048,17 @@ hr
         [class*=top] &
             margin: 0
     &__data
+        g
+            transform-origin: center
+            -webkit-transform-origin: center
         polygon
             transform-origin: center
-            animation: flowIn 1s forwards
+            -webkit-transform-origin: center
+            cursor: pointer
+            clip-path: ellipse(200% 50% at 50% 50%)
+            -webkit-clip-path: ellipse(200% 50% at 50% 50%)
+            &:hover
+                fill: var(--main__hover)
     &__graph
         position: relative
         img
@@ -972,19 +1144,18 @@ hr
     border-radius: 10px
     box-shadow: 0 0 10px #00000014
     padding: 30px
-    position: sticky
-    top: 20px
     &__title
         font-size: 24px
         font-weight: 700
         margin: 0 0 10px 0
     &__text
         font-size: 14px
+        line-height: 1.5
         margin: 0 0 30px 0
     &__price
         font-size: 36px
         color: var(--main)
-        font-weight: 600
+        font-weight: 700
         letter-spacing: -0.05em
         display: flex
         align-items: center
@@ -1138,10 +1309,11 @@ hr
     left: 0
     z-index: 9
     backdrop-filter: blur(4px)
+    -webkit-backdrop-filter: blur(4px)
     &.active
         display: flex
     &__container
-        max-width: 440px
+        max-width: 480px
         background: #fff
         border-radius: 10px
         padding: 60px
@@ -1206,6 +1378,8 @@ hr
         font-weight: 700
         line-height: 1
         margin: 0 0 40px 0
+    &__text
+        line-height: 1.5
     &__green
         font-size: 24px
         color: var(--main)
